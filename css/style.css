@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+@keyframes logoAnimation {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: 'Poppins', serif;
+  background-image: url('path/to/your/concrete_seamless.png');
+  background-color: #f1f1f1;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+#logo {
+  animation: logoAnimation 5s forwards;
+}
+
+.nav_links {
+  display: flex;
+  padding: 0;
+}
+
+.nav_item a {
+  text-decoration: underline;
+  color: blue;
+  padding: 10px;
+}
+
+.nav_item a:visited {
+  color: blue;
+}
+
+.card > header {
+  background: #288088;
+  border: 2px solid #45ADAD;
+  padding: 20px 0;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  flex: 1 0 450px;
+  margin: 10px;
+}
+
+.pricing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 70px;
+}
+
+.gallery img {
+  border: 10px solid #50C7C7;
+  margin: 10px;
+  width: 300px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .card {
+    flex-basis: 275px;
+  }
+  
+  .nav_links {
+    flex-direction: row; /* Aligns the links horizontally */
+    justify-content: center; /* This will center the links horizontally; adjust as needed */
+    padding: 0;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+
+  .card > header, .card > ul {
+    position: relative; /* or 'static' depending on your layout */
+    /* The rest of your styles */
+    z-index: 1;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: none;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav_links {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav_item {
+    display: inline;
+    margin: 0 5px;
+  }
+
+  .pricing {
+    align-items: flex-end;
+    margin: 10px;
+  }
+
+  .card {
+    border: 2px solid #45ADDD;
+    flex-basis: 200px;/*(325 is too large)*/
+    margin-right: 5px;
+    page-break-inside: avoid;
+  }
+
+  .gallery, #gallery, .skip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #logo {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav_links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
